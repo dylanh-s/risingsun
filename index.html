@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japan or China?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="flag-jp" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#fff"/>
+      <circle cx="15" cy="10" r="6" fill="#bc002d"/>
+    </symbol>
+    <path id="star" d="M0,-1 0.588,0.809 -0.951,-0.309 0.951,-0.309 -0.588,0.809Z" fill="#ffde00"/>
+    <symbol id="flag-cn" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#de2910"/>
+      <use href="#star" transform="translate(5,5) scale(3)"/>
+      <use href="#star" transform="translate(10,2) rotate(23)"/>
+      <use href="#star" transform="translate(12,4) rotate(46)"/>
+      <use href="#star" transform="translate(12,7) rotate(70)"/>
+      <use href="#star" transform="translate(10,9) rotate(21)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+  <!-- Start -->
+  <section id="screen-start" class="screen">
+    <h1>Japan <span class="or">or</span> China?</h1>
+    <p class="sub">Pass the phone around. The pot starts at 1 sip and every right answer adds another. Get one wrong and you drink the lot.</p>
+    <button id="btn-start" class="primary" disabled>Loading photos…</button>
+    <p class="hint">Tap a flag, swipe the photo (← Japan · China →) or use the arrow keys.</p>
+  </section>
+
+  <!-- Play -->
+  <section id="screen-play" class="screen" hidden>
+    <header class="hud">
+      <span>Pot</span>
+      <span class="pot">🍺 <b id="pot">1</b></span>
+    </header>
+    <div class="stage">
+      <div id="card" class="card">
+        <img id="photo" alt="Person to guess" draggable="false">
+        <div id="verdict" class="verdict" hidden></div>
+      </div>
+    </div>
+    <div class="choices">
+      <button class="flag-btn" data-guess="japanese" aria-label="Japan">
+        <svg><use href="#flag-jp"/></svg><span>Japan</span>
+      </button>
+      <button class="flag-btn" data-guess="chinese" aria-label="China">
+        <svg><use href="#flag-cn"/></svg><span>China</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Drink -->
+  <section id="screen-drink" class="screen" hidden>
+    <p class="sub">Wrong! That was <b id="answer"></b></p>
+    <figure class="missed"><img id="missed-photo" alt=""><svg><use id="missed-flag" href="#flag-jp"/></svg></figure>
+    <p class="sub">Drink</p>
+    <div class="sips-total"><b id="sips-total">0</b><span id="sips-word">sips</span></div>
+    <button id="btn-next" class="primary">Next player</button>
+  </section>
+</main>
+
+<script src="game.js"></script>
+</body>
+</html>
