@@ -59,8 +59,15 @@ function setPot(n) {
   $("pot").textContent = n;
 }
 
+// ?photo=<filename or id> puts that photo first, for checking how it displays.
+function pinnedFirst() {
+  const want = new URLSearchParams(location.search).get("photo");
+  const p = want && pool.find((p) => p.src.endsWith(`/${want}`) || p.src.endsWith(`/${want}.jpg`));
+  return p ? [p] : [];
+}
+
 function start() {
-  deck = [];
+  deck = pinnedFirst();
   index = 0;
   setPot(1);
   show("play");
