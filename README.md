@@ -4,4 +4,4 @@ This is a simple and objectively inferior copy of the brilliant [japochi.app](ht
 
 I only created this as I was having trouble playing it while in China due to the GFW!
 
-Data set should be about 50% of the original's.
+Data set should be about 50% of the original's, plus some random pics of friends maybe.
